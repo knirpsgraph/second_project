@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profilseite</title>
+
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/Footer.css">
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/font-awesome/css/all.css">
+
+
+    <script src="/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Import own script (the compiled javascript)-->
+    <script>var exports = {"__esModule": true};</script>
+    <script src="/script/script.js"></script>
+    <script src="/script/mainscript.js"></script>
+
+</head>
+<body>
+<div class="container" id="content">
+
+    <!-- add user form -->
+    <div class="row">
+        <div class="col">
+            <form id="add-user-form">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="add-user-first-name">First name</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="First name" aria-label="First name"
+                           aria-describedby="add-user-first-name" id="add-first-name-input" required>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="add-user-last-name">Last name</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name"
+                           aria-describedby="add-user-last-name" id="add-last-name-input" required>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="add-username">Username</span>
+                    </div>
+                    <input type="text" aria-label="Username" class="form-control " placeholder="Username" id="input-username">
+                    <div class="input-group-prepend" >
+                        <span class="input-group-text" id="add-passwort">Passwort</span>
+                    </div>
+                    <input type="password" aria-label="Passwort" class="form-control" placeholder="Passwort" id="inputPassword">
+                </div>
+                <div class="input-group mb-3">
+                    <button type="submit" class="btn btn-info waves-effect">Add user</button>
+                    <button id="deleteAllUser" type="button" class="btn btn-info ml-5">Delete ALL</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Userlist -->
+    <div class="row" id="userList">
+        <div class="col">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col" id="sortUserName">Username</th>
+                    <th scope="col" id="sortUserFirst">First name</th>
+                    <th scope="col" id="sortUserLast">Last name</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody id="user-table-body">
+                <!-- The user list will be generated and inserted here -->
+                </tbody>
+            </table>
+            <input type="hidden" id="id_order" value="abc">
+            <input type="hidden" id="first_order" value="cba">
+            <input type="hidden" id="second_order" value="abc">
+        </div>
+    </div>
+
+    <!-- Edit user modal window -->
+    <div class="modal" id="edit-user-modal" role="dialog" aria-labelledby="edit-user-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <form class="modal-content" id="edit-user-form">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="edit-user-modal-title">Edit user: </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input type="hidden" aria-hidden="true" id="edit-username-input">
+                        <div class="input-group-prepend">
+                            <label for="edit-first-name-input">
+                                <span class="input-group-text">First Name</span>
+                                <input type="text" aria-label="First name" placeholder='First Name' class="form-control" id="edit-first-name-input">
+                            </label>
+                        </div>
+                        <label for="edit-last-name-input">
+                            <span class="input-group-text">Second Name</span>
+                            <input type="text" aria-label="Last name" placeholder="Last name" class="form-control" id="edit-last-name-input">
+                        </label>
+                        <label for="edit-user_password">
+                            <span class="input-group-text">Old Password</span>
+                            <input type="text" aria-label="Password" placeholder="Old Password" class="form-control " id="edit-user_password" readonly>
+                        </label>
+                        <label for="edit-user_password">
+                            <span class="input-group-text">Enter new Password or old Password again</span>
+                            <input type="text" aria-label="Password" placeholder="..." class="form-control" id="edit-new-user_password" data-trigger="manual" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="editSaveBtn" type="submit" class="btn btn-info" >Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

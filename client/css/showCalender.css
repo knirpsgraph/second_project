@@ -1,0 +1,33 @@
+#calenderTable {
+    padding-top: 75px;
+    text-align: center;
+
+}
+
+#card_date {
+    z-index: 2;
+    position: absolute;
+    text-align: center;
+}
+
+#event_card {
+    opacity: 0.7;
+}
+
+#event_card:hover{
+     opacity: 1.0;
+     transition: 0.5s;
+ }
+
+
+.card-img-top{
+    max-height: 250px;
+    object-fit: cover;
+}
+
+
+.card_event_body {
+    object-fit: cover;
+}
+
+

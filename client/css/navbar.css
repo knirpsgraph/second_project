@@ -1,0 +1,122 @@
+@media screen and (max-width: 1080px) {
+ /*   #navigationsleiste {
+        padding: 10px 10px !important;
+        display: none;
+    }
+*/
+    #navigationsleiste_ssmall {
+        visibility: hidden;
+    }
+}
+
+
+@media screen and (min-width: 1080px) {
+    #navigationsleiste_ssmall {
+       visibility: hidden;
+    }
+}
+
+
+
+@media screen and (max-width: 575px) {
+    #navigationsleiste_small {
+        visibility: hidden;
+    }
+/*
+    #navigationsleiste {
+        visibility: hidden;
+    }
+*/
+    #navigationsleiste_ssmall {
+        visibility: initial;
+    }
+}
+
+
+.navbar-header {
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+
+#navbar {
+    overflow: hidden;
+    background: #ced1d4;
+}
+
+#navigationsleiste_small:hover {
+    opacity: 1.0
+}
+.navbar-brand {
+    float:none;
+}
+#slideoutMenue {
+    position: fixed;
+    top: 35%;
+    left: -70px;
+    width: 100px;
+    height: 100px;
+    text-align: right;
+    background: #ced1d4;
+    opacity: 0.7;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.7s;
+    -webkit-border-radius: 0 5px 5px 0;
+    -moz-border-radius: 0 5px 5px 0;
+    border-radius: 0 5px 5px 0;
+    z-index: 3;
+}
+
+#slideoutMenue_inner {
+    color: black;
+    position: fixed;
+    top: 35%;
+    background: #ced1d4;
+    opacity: 0.9;
+    z-index: 1;
+    left: -205px;
+    padding: 25px;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.6s;
+    text-align: left;
+    -webkit-border-radius: 0 0 5px 0;
+    -moz-border-radius: 0 0 5px 0;
+    border-radius: 0 0 5px 0;
+}
+#slideoutMenue_inner ul,li {
+    margin-bottom: 6px;
+    padding-top: 5px;
+}
+#slideoutMenue:hover {
+    left: 200px;
+    opacity: 1;
+}
+
+#slideoutMenue:hover #slideoutMenue_inner {
+    left: 0;
+    opacity: 1;
+}
+
+.navbar-link{
+    color: black;
+}
+
+#slideoutMenue i{
+    padding-top: 40px;
+    padding-right: 12px;
+    width: 50px;
+    opacity: 1 !important;
+    color: black;
+}
+
+#slideoutMenue_inner a{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}

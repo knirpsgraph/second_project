@@ -1,0 +1,114 @@
+#******- Mit Parametern übertrqgen in json // POST Resultat -*********
+
+// User #1
+POST /user HTTP/2
+host: localhost:8080
+accept: application/json
+content-type: application/json
+
+{"username": "hbnk77", "firstName": "Hany", "lastName":  "Nicklas", "password":  "123"}
+###
+
+//User #2
+POST /user HTTP/2
+host: localhost:8080
+accept: application/json
+content-type: application/json
+
+{"username": "hjh71", "firstName": "Peter", "lastName":  "Lustig", "password":  "123"}
+###
+
+
+
+// User zum Testen ob Parameterkontrolle funktioniert // console.log(' ')
+POST /user HTTP/2
+host: localhost:8080
+accept: application/json
+content-type:application/json
+
+{"username":  "GGGG21", "firstName": "Theodor", "password": "123"}
+###
+
+
+//** Fehler -----Error [ERR_HTTP_HEADERS_SENT]:--- on console -- Neue Post werden dennoch korrekt angelegt?!
+// Producr #1
+POST /product HTTP/2
+host: localhost:8080
+accept: application/json
+content-type: application/json
+
+{"name": "Schraube", "number": "546186", "inventory": 100, "description": "Schraube für Besen"}
+
+###
+//Produkt #2
+POST /product HTTP/2
+host: localhost:8080
+accept: application/json
+content-type: application/json
+
+{"name": "Holz", "number": "546187", "inventory": 25, "description": "Lagerbestand"}
+
+###
+
+//Fehlerfall doppelte Product ID
+POST /product HTTP/2
+host:localhost:8080
+content-type: application/json
+
+{"name": "Holz","number": "546186", "description": "Schraube für Besen", "inventory": 100}
+
+###
+
+// **** GET Route User hbnk77 // Anfrage über url
+GET /user/hbnk77 HTTP/2
+host:localhost:8080
+
+###
+//** Fehlerefall
+GET /user/hjh71 HTTP/2
+host:localhost:8080
+
+###
+
+
+
+// GET Route all Products
+GET /products HTTP/2
+host: localhost:8080
+
+###
+
+GET /product/546186 HTTP/2
+host: localhost:8080
+
+###
+GET /product/546187 HTTP/2
+host: localhost:8080
+
+
+##Delete Route // Kontrolle console.log(userList)
+###
+DELETE /user/hjh71 HTTP/2
+host:localhost:8080
+
+###
+##PUT Route User
+PUT /user/hjh71 HTTP/2
+host: localhost:8080
+content-type: application/json
+
+{"username": "hjh71" ,"firstName": "Hans", "lastName":  "Im Glück", "password":  "321"}
+###
+// Test Fehlerefall
+PUT /user/hjh71 HTTP/2
+host: localhost:8080
+content-type: application/json
+
+{"username": "hjh" ,"firstName": "Hans", "lastName":  "Im Glück", "password":  "321"}
+###
+
+PUT /product/54186 HTTP/2
+host: localhost:8080
+content-type: application/json
+
+{"name": "Schraube", "number": "546186", "inventory": 50, "description": " Schraube für Besen"}
